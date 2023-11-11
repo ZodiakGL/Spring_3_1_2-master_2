@@ -21,22 +21,12 @@ public interface UserService {
 
     User findByUserName(String name);
 
-    void save(User user);
-
     Collection<? extends GrantedAuthority> grantedAuthorities(Collection<Role> roles);
-
-    void addRole (Role role);
-
-    void addDefaultRole ();
-
-    void addDefaultUser();
 
     User getUserByLogin(String name);
 
     User passwordCoder(User user);
 
     void updateUser (User user);
-
-    void updateUser2 (User user);
 
 }

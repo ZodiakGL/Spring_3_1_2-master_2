@@ -43,7 +43,6 @@ public class AdminController {
 
 	@PostMapping()
 	public String create(@ModelAttribute("user") @Valid User user, @RequestParam("listRoles") ArrayList<Long> roles) {
-		userService.addUser(user);
 		user.setRoles(roleService.findByIdRoles(roles));
 		userService.updateUser(user);
 		return "redirect:/admin";
@@ -51,9 +50,8 @@ public class AdminController {
 
 	@PostMapping("/edit/user")
 	public String editUser(@ModelAttribute("user") @Valid User user, @RequestParam("listRoles") ArrayList<Long> roles) {
-		userService.addUser(user);
 		user.setRoles(roleService.findByIdRoles(roles));
-		userService.updateUser2(user);
+		userService.updateUser(user);
 		return "redirect:/admin";
 	}
 

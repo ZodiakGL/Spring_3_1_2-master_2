@@ -1,8 +1,5 @@
 package ru.kata.spring.boot_security.demo.dao;
 
-
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.kata.spring.boot_security.demo.model.Role;
@@ -13,7 +10,6 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
-
 
 @Repository
 @Transactional
@@ -82,6 +78,8 @@ public class UserDaoImp implements UserDao{
         return q.getResultList().stream().findFirst().orElse(null);
     }
     @Override
-    public void updateUser(User user) {entityManager.merge(user);}
+    public void updateUser(User user) {
+        entityManager.merge(user);
+    }
 
 }
