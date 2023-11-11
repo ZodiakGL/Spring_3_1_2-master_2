@@ -1,7 +1,6 @@
 package ru.kata.spring.boot_security.demo.dao;
 
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
 
@@ -13,8 +12,8 @@ public interface UserDao {
 
     void addUser (User user);
 
-    User getUserById(int id);
-    void delete (int id);
+    User getUserById(Long id);
+    void delete (Long id);
 
     User getUserByName(String name);
 
@@ -22,7 +21,7 @@ public interface UserDao {
 
     void save (User user);
 
-    public Role findById(long id);
+    public Role findById(Long id);
 
     User getUserByLogin(String name);
 

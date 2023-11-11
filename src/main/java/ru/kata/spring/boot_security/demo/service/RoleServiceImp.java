@@ -19,9 +19,11 @@ public class RoleServiceImp implements RoleService {
     }
 
     @Override
-    @Transactional
     public Set<Role> findByIdRoles(List<Long> roles) {
         return roleDao.findByIdRoles(roles);
     }
-
+    @Override
+    public List<Role> getRolesByUserId(Long id) {
+        return roleDao.getRolesByUserId(id);
+    }
 }

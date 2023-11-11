@@ -40,26 +40,22 @@ public class UserServiceImp implements UserService, UserDetailsService {
     }
 
     @Override
-    @Transactional
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
 
     @Override
-    @Transactional
     public void addUser(User user) {
         userDao.addUser(user);
 
     }
     @Override
-    @Transactional
-    public User getUserById(int id) {
+    public User getUserById(Long id) {
         return userDao.getUserById(id);
     }
 
     @Override
-    @Transactional
-    public void delete(int id) {
+    public void delete(Long id) {
         userDao.delete(id);
     }
 
@@ -74,15 +70,13 @@ public class UserServiceImp implements UserService, UserDetailsService {
     }
 
     @Override
-    @Transactional
     public User passwordCoder(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return user;
     }
     @Override
-    @Transactional
     public void updateUser (User user) {
-        if (user.getId() == 0) {
+        if (user.getId() == null) {
             userDao.updateUser(passwordCoder(user));
         }
         else {

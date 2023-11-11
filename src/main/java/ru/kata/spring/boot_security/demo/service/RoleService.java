@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 @Component
 public interface RoleService {
-
     Set<Role> findByIdRoles(List<Long> roles);
+
+    List<Role> getRolesByUserId(Long id);
 }

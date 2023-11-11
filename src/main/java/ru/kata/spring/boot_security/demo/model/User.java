@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Entity
@@ -13,7 +14,7 @@ import java.util.stream.Collectors;
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @Column
     private String name;
     @Column
@@ -27,7 +28,7 @@ public class User implements UserDetails {
             inverseJoinColumns = {@JoinColumn(name = "role_id")})
     private Collection<Role> roles;
 
-    public User() {
+    public User(String user, String password, String mail, Set<String> roleSet) {
     }
 
     public User(String name, String password, String mail, Collection<Role> roles) {
@@ -35,6 +36,9 @@ public class User implements UserDetails {
         this.password = password;
         this.mail = mail;
         this.roles = roles;
+    }
+
+    public User() {
     }
 
     @Override
@@ -79,11 +83,11 @@ public class User implements UserDetails {
         return true;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

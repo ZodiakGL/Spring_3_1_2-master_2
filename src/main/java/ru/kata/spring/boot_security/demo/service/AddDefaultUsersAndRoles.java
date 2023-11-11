@@ -11,6 +11,7 @@ import ru.kata.spring.boot_security.demo.model.User;
 
 import java.util.HashSet;
 import java.util.Set;
+
 @Service
 public class AddDefaultUsersAndRoles {
     private UserDao userDao;
@@ -25,10 +26,10 @@ public class AddDefaultUsersAndRoles {
     @Transactional
     public void addDefaultUser() {
         Set<Role> roleSet = new HashSet<>();
-        roleSet.add(userDao.findById(1));
+        roleSet.add(userDao.findById((long)1));
         Set<Role> roleSet2 = new HashSet<>();
-        roleSet2.add(userDao.findById(1));
-        roleSet2.add(userDao.findById(2));
+        roleSet2.add(userDao.findById((long)1));
+        roleSet2.add(userDao.findById((long)2));
         User user1 = new User("user", "user", "user", roleSet);
         User user2 = new User("admin", "admin", "admin", roleSet2);
         save(user1);
