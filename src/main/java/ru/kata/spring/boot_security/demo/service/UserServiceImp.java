@@ -45,8 +45,8 @@ public class UserServiceImp implements UserService, UserDetailsService {
     }
 
     @Override
-    public void addUser(User user) {
-        userDao.addUser(user);
+    public void save(User user) {
+        userDao.save(user);
 
     }
     @Override
@@ -86,5 +86,15 @@ public class UserServiceImp implements UserService, UserDetailsService {
     @Override
     public User getUserByLogin(String name) {
         return userDao.getUserByLogin(name);
+    }
+
+    @Override
+    public Role findById(Long id) {
+        return userDao.findById(id);
+    }
+
+    @Override
+    public void addRole(Role role) {
+        userDao.addRole(role);
     }
 }

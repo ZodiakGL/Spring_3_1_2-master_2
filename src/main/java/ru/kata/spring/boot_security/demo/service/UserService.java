@@ -12,7 +12,7 @@ import java.util.List;
 public interface UserService {
     List<User> getAllUsers();
 
-    void addUser(User user);
+    void save(User user);
 
     User getUserById(Long id);
 
@@ -27,5 +27,9 @@ public interface UserService {
     User passwordCoder(User user);
 
     void updateUser (User user);
+
+    Role findById(Long id);
+
+    void addRole (Role role);
 
 }
