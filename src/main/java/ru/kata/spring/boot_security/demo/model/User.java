@@ -6,7 +6,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Entity
@@ -27,9 +26,6 @@ public class User implements UserDetails {
             @JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id")})
     private Collection<Role> roles;
-
-    public User(String user, String password, String mail, Set<String> roleSet) {
-    }
 
     public User(String name, String password, String mail, Collection<Role> roles) {
         this.name = name;
